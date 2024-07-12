@@ -21,7 +21,7 @@ const Notepad = () => {
             <li><u>H</u>elp</li>
           </ul>
           <div className="card-body" style={{ "maxHeight": "80vh", "overflowY": "scroll", "paddingRight": "10px" }}>
-            <h3 className="stoop-sale">STOOP SALE!!</h3>
+            <h3 className="stoop-sale">STOOP SALE in BROOKLYN!!</h3>
             <h4>Saturday 27th June 20204 11am - 4pm</h4>
             <h5>Find us here: (2nd Pl. and Court St)</h5>
             <MapComponent /> 
