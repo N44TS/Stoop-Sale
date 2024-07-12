@@ -1,7 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Draggable from 'react-draggable';
 
 const DraggableWindow = () => {
+  const calculateTimeLeft = () => {
+    const targetDate = new Date('2024-07-27T11:00:00');
+    const now = new Date();
+    const difference = targetDate - now;
+
+    let timeLeft = {};
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    } else {
+      timeLeft = {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      };
+    }
+
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const handleSetReminder = () => {
     const event = {
       title: 'Stoop Sale Reminder',
@@ -10,34 +46,19 @@ const DraggableWindow = () => {
       endDate: '20240727T120000',
     };
 
-    const icsContent = generateICS(event);
-    downloadICS('stoop_sale_reminder.ics', icsContent);
+    const googleCalendarUrl = generateGoogleCalendarUrl(event);
+    window.open(googleCalendarUrl, '_blank');
     
-    // Keep the original alert
     alert('Reminder set for 27th July 2024, 11:00 AM');
   };
 
-  const generateICS = (event) => {
+  const generateGoogleCalendarUrl = (event) => {
     const { title, description, startDate, endDate } = event;
-    return `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:${title}
-DESCRIPTION:${description}
-DTSTART:${startDate}
-DTEND:${endDate}
-END:VEVENT
-END:VCALENDAR`;
-  };
-
-  const downloadICS = (filename, content) => {
-    const blob = new Blob([content], { type: 'text/calendar;charset=utf-8' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const baseUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
+    const text = `&text=${encodeURIComponent(title)}`;
+    const details = `&details=${encodeURIComponent(description)}`;
+    const dates = `&dates=${startDate}/${endDate}`;
+    return `${baseUrl}${text}${details}${dates}`;
   };
 
   return (
@@ -52,20 +73,20 @@ END:VCALENDAR`;
           </div>
           <div className="window-body">
             <h5>(Tip: You can move me anywhere!)</h5>
+            <h5>Countdown: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</h5>
             <button aria-label="Help" onClick={handleSetReminder}>set reminder</button>
             <br></br>
             <br></br>
             <button aria-label="Help" style={{ border: 'none', cursor: 'pointer' }}>
-    <a 
-      href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fstoop-sale-orcin.vercel.app&text=This%20stoop%20sale%20looks%20so%20good!" 
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ textDecoration: 'none', color: 'inherit' }} // Ensuring link inherits button styling
-    >
-      SHARE US!
-    </a>
-  </button>
-
+              <a 
+                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fstoop-sale-orcin.vercel.app&text=This%20stoop%20sale%20looks%20so%20good!" 
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none', color: 'inherit' }} // Ensuring link inherits button styling
+              >
+                SHARE US!
+              </a>
+            </button>
           </div>
         </div>
       </div>
