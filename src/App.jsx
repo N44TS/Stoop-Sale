@@ -78,7 +78,7 @@ function App() {
           </div>
           <div className="window-body">
             <img src="https://i.imgur.com/AwI7EDk.png" alt="" />
-            <p>In the spirit of Windows 98 and the humble stoop sale beginnings, this Stoop Sale Invite isn't optimised for mobile screens yet. </p>
+            <p>In the spirit of Windows 98, this Stoop Sale Invite isn't optimised for mobile screens yet. </p>
             <p>Please come back in 20 years or checkout the desktop version.</p>
           </div>
           <section className="field-row" style={{ "justify-content": "flex-end" }}>
@@ -99,6 +99,8 @@ function App() {
               </div>
               <div className="desktop-icon network" title="Network Neighborhood">
                 Network Neighborhood
+              </div>
+              <div className="desktop-icon stoop" title="Stoop Pic">
               </div>
             </div>
           </div>

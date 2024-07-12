@@ -119,6 +119,9 @@ font-size: 12px;
 .desktop-icons .desktop-icon.network {
  background-image: url(./images/network.png);
 }
+.desktop-icons .desktop-icon.stoop {
+  background-image: url(./images/stoop.jpeg);
+ }
 
 .startbar {
 position: fixed;
