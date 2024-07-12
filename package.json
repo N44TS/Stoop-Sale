@@ -1,0 +1,30 @@
+{
+  "name": "Stoop Sale Invite",
+  "version": "1.0.0",
+  "description": "Stoop sale invite in 90s theme",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "98.css": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "leaflet": "^1.9.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-draggable": "^4.4.3",
+    "react-leaflet": "^4.2.1",
+    "vite": "^2.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.0",
+    "concurrently": "^6.2.1"
+  }
+}
