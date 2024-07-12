@@ -3,16 +3,16 @@ import './DocumentsWindow.css';
 
 const imageFolders = {
   clothes: [
-    { name: 'Dress', src: '/assets/images/docs/dress.png' },
-    { name: 'Shoes', src: '/assets/images/docs/shoes.png' },
+    { name: 'Dress', src: '/images/docs/dress.png' },
+    { name: 'Shoes', src: '/images/docs/shoes.png' },
   ],
   shoes: [
-    { name: 'Sneakers', src: '/assets/images/docs/sneakers.png' },
-    { name: 'Boots', src: '/assets/images/docs/boots.png' },
+    { name: 'Sneakers', src: '/images/docs/sneakers.png' },
+    { name: 'Boots', src: '/images/docs/boots.png' },
   ],
   tidbits: [
-    { name: 'Tidbit1', src: '/assets/images/docs/tidbit1.png' },
-    { name: 'Tidbit2', src: '/assets/images/docs/tidbit2.png' },
+    { name: 'Tidbit1', src: '/images/docs/tidbit1.png' },
+    { name: 'Tidbit2', src: '/images/docs/tidbit2.png' },
   ],
 };
 
@@ -38,7 +38,12 @@ function DocumentsWindow({ onClose }) {
             <ul className="image-list">
               {imageFolders[currentFolder].map((image) => (
                 <li key={image.name}>
-                  <img src={image.src} alt={image.name} />
+                  <div className="image-container">
+                    <img 
+                      src={image.src}
+                      alt={image.name} 
+                    />
+                  </div>
                   <p>{image.name}</p>
                 </li>
               ))}
