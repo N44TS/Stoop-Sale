@@ -137,7 +137,7 @@ position: fixed;
  float: left;
 }
 #toolbar .toolbar-start-menu .start-button {
- background: url(src/images/windowslogo.png) no-repeat 2px center / 24px;
+ background: url(/images/windowslogo.png) no-repeat 2px center / 24px;
  padding-left: 28px;
  padding-right: 5px;
  height: 29px;

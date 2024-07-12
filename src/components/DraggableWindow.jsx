@@ -55,9 +55,17 @@ END:VCALENDAR`;
             <button aria-label="Help" onClick={handleSetReminder}>set reminder</button>
             <br></br>
             <br></br>
-            <button aria-label="Help">
-              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fyourwebsite.com&text=This%20stoop%20sale%20looks%20so%20good!" target="_blank" style={{ border: 'none', borderRadius: '5px', cursor: 'pointer' }}>SHARE US!</a>
-            </button>
+            <button aria-label="Help" style={{ border: 'none', cursor: 'pointer' }}>
+    <a 
+      href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fstoop-sale-orcin.vercel.app&text=This%20stoop%20sale%20looks%20so%20good!" 
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ textDecoration: 'none', color: 'inherit' }} // Ensuring link inherits button styling
+    >
+      SHARE US!
+    </a>
+  </button>
+
           </div>
         </div>
       </div>
