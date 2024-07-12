@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import './DocumentsWindow.css'; // Import the CSS file for styling
+import './DocumentsWindow.css';
 
 const imageFolders = {
   clothes: [
-    { name: 'Dress', src: '/images/docs/dress.png' },
-    { name: 'Shoes', src: '/images/docs/shoes.png' },
+    { name: 'Dress', src: '/assets/images/docs/dress.png' },
+    { name: 'Shoes', src: '/assets/images/docs/shoes.png' },
   ],
   shoes: [
-    { name: 'Sneakers', src: '/images/shoes/sneakers.png' },
-    { name: 'Boots', src: '/images/shoes/boots.png' },
+    { name: 'Sneakers', src: '/assets/images/docs/sneakers.png' },
+    { name: 'Boots', src: '/assets/images/docs/boots.png' },
   ],
   tidbits: [
-    { name: 'Tidbit1', src: '/images/tidbits/tidbit1.png' },
-    { name: 'Tidbit2', src: '/images/tidbits/tidbit2.png' },
+    { name: 'Tidbit1', src: '/assets/images/docs/tidbit1.png' },
+    { name: 'Tidbit2', src: '/assets/images/docs/tidbit2.png' },
   ],
 };
 
